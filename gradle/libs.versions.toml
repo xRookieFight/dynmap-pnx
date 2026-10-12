@@ -1,0 +1,12 @@
+[versions]
+dynmap = "3.9-SNAPSHOT"
+powernukkitx = "3.0.0-SNAPSHOT"
+shadow = "8.1.7"
+
+[libraries]
+dynmap-core = { module = "us.dynmap:DynmapCore", version.ref = "dynmap" }
+dynmap-core-api = { module = "us.dynmap:DynmapCoreAPI", version.ref = "dynmap" }
+powernukkitx-server = { module = "org.powernukkitx:server", version.ref = "powernukkitx" }
+
+[plugins]
+shadow = { id = "io.github.goooler.shadow", version.ref = "shadow" }

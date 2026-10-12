@@ -1,0 +1,31 @@
+name: dynmap
+main: org.dynmap.pnx.DynmapPlugin
+version: "${version}"
+api: ["1.0.0"]
+authors:
+  - mikeprimm
+  - xRookieFight
+website: https://github.com/webbukkit/dynmap
+description: Dynamic web-based map for PowerNukkitX.
+load: POSTWORLD
+commands:
+  dynmap:
+    description: Dynmap control command
+    usage: "/dynmap <subcommand>"
+    permission: dynmap.cmd
+  dmap:
+    description: Dynmap map management
+    usage: "/dmap <subcommand>"
+    permission: dynmap.cmd
+  dmarker:
+    description: Dynmap marker management
+    usage: "/dmarker <subcommand>"
+    permission: dynmap.cmd
+  dynmapexp:
+    description: Dynmap export command
+    usage: "/dynmapexp <subcommand>"
+    permission: dynmap.cmd
+permissions:
+  dynmap.cmd:
+    description: Base Dynmap command access
+    default: true

@@ -1,0 +1,9 @@
+Dynmap for PowerNukkitX
+Copyright 2026 xRookieFight and contributors
+
+This product is a port of Dynmap (https://github.com/webbukkit/dynmap),
+licensed under the Apache License, Version 2.0.
+Original work Copyright Mike Primm and the Dynmap contributors.
+
+PowerNukkitX (https://github.com/PowerNukkitX/PowerNukkitX) is used as a
+compile time API only and is not redistributed in the plugin jar.

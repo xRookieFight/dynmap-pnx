@@ -1,0 +1,32 @@
+name: Feature request
+description: Suggest an improvement or a missing Dynmap feature on PowerNukkitX.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      placeholder: Custom blocks from my resource pack show up as plain stone on the map.
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: How you would like it to work.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+
+  - type: checkboxes
+    id: upstream
+    attributes:
+      label: Scope
+      options:
+        - label: This is specific to the PowerNukkitX port and not a general Dynmap feature request.
+        - label: I'm willing to open a pull request for this.

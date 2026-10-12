@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Upstream Dynmap issues
+    url: https://github.com/webbukkit/dynmap/issues
+    about: Problems in the web UI or core rendering that also happen on Bukkit, Forge or Fabric belong upstream.
+  - name: PowerNukkitX
+    url: https://github.com/PowerNukkitX/PowerNukkitX
+    about: Server bugs that are not caused by Dynmap.
+  - name: Questions and discussion
+    url: https://github.com/xRookieFight/dynmap-pnx/discussions
+    about: Setup help, configuration questions and general chat.

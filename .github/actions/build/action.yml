@@ -1,0 +1,50 @@
+name: Build plugin
+description: Checks out the pinned Dynmap sources next to this repo and builds the shaded plugin jar.
+
+inputs:
+  gradle-args:
+    description: Extra arguments passed to Gradle.
+    required: false
+    default: ""
+
+outputs:
+  jar:
+    description: Path to the built plugin jar.
+    value: ${{ steps.jar.outputs.path }}
+
+runs:
+  using: composite
+  steps:
+    - name: Read pinned Dynmap revision
+      id: dynmap
+      shell: bash
+      working-directory: dynmap-pnx
+      run: |
+        echo "repository=$(sed -n 's#^dynmapRepository=https://github.com/##p' gradle.properties | sed 's#\.git$##')" >> "$GITHUB_OUTPUT"
+        echo "ref=$(sed -n 's/^dynmapRef=//p' gradle.properties)" >> "$GITHUB_OUTPUT"
+
+    - name: Checkout Dynmap
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ steps.dynmap.outputs.repository }}
+        ref: ${{ steps.dynmap.outputs.ref }}
+        path: dynmap-src
+
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: "21"
+
+    - name: Set up Gradle
+      uses: gradle/actions/setup-gradle@v4
+
+    - name: Build
+      shell: bash
+      working-directory: dynmap-pnx
+      run: ./gradlew build --console=plain ${{ inputs.gradle-args }}
+
+    - name: Locate jar
+      id: jar
+      shell: bash
+      run: echo "path=$(ls dynmap-pnx/build/libs/Dynmap-*-pnx.jar | head -n 1)" >> "$GITHUB_OUTPUT"

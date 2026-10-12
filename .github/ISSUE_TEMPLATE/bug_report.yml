@@ -1,0 +1,93 @@
+name: Bug report
+description: Something is broken, renders wrong or crashes the server.
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this. Please search existing issues first, and make sure the bug happens with the latest build.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear description of the problem.
+      placeholder: Chunks in the nether render as solid black after a full render.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Start the server with a fresh world
+        2. Run `/dynmap fullrender world`
+        3. Open the web map
+    validations:
+      required: true
+
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Dynmap PNX version
+      description: The jar name or the output of `/dynmap version`.
+      placeholder: Dynmap-3.9-SNAPSHOT-pnx.jar
+    validations:
+      required: true
+
+  - type: input
+    id: pnx-version
+    attributes:
+      label: PowerNukkitX version
+      description: The output of `/version`.
+      placeholder: 3.0.0
+    validations:
+      required: true
+
+  - type: input
+    id: java-version
+    attributes:
+      label: Java version
+      placeholder: Temurin 21.0.5
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: How do you run the server?
+      options:
+        - Docker image from this repo
+        - Plain jar
+        - Hosting panel (Pterodactyl, etc.)
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Server console output around the problem. Stack traces are very welcome.
+      render: shell
+
+  - type: textarea
+    id: config
+    attributes:
+      label: Configuration
+      description: Relevant parts of `plugins/dynmap/configuration.txt`. Remove passwords and secrets first.
+      render: yaml
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+      description: Screenshots of the map, other plugins installed, world type, etc.
