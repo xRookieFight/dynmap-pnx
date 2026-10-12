@@ -24,20 +24,20 @@ runs:
         echo "ref=$(sed -n 's/^dynmapRef=//p' gradle.properties)" >> "$GITHUB_OUTPUT"
 
     - name: Checkout Dynmap
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
       with:
         repository: ${{ steps.dynmap.outputs.repository }}
         ref: ${{ steps.dynmap.outputs.ref }}
         path: dynmap-src
 
     - name: Set up JDK 21
-      uses: actions/setup-java@v4
+      uses: actions/setup-java@v6
       with:
         distribution: temurin
         java-version: "21"
 
     - name: Set up Gradle
-      uses: gradle/actions/setup-gradle@v4
+      uses: gradle/actions/setup-gradle@v6
 
     - name: Build
       shell: bash
